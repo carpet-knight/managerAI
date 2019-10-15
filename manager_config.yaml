@@ -1,0 +1,37 @@
+tasks:
+    # path to the IFTTT.trigger function (pattern: <module>.<class>.<static_method>)
+  - trigger: 'scenarios.XPathScenario.telegram_post_date_check'
+
+    # path to the IFTTT.handler function (pattern: <module>.<class>.<static_method>)
+    handler: 'scenarios.XPathScenario.telegram_post_date_handler'
+
+    # page that will be parsed
+    url: 'https://t.me/s/codex_team'
+
+    # path to the notifier class (pattern: <module>.<class>)
+    # notifier: 'utils.notifiers.CodexTelegramNotifier'
+
+    #proxies (optional)
+    proxies: {
+               http: 'http://<ip>:<port>'
+               https: 'https://<ip>:<port>'
+    }
+
+    # xpath expression for watсhing element
+    xpath: '/html/body/main/div/section/div[20]/div[1]/div[2]/div[3]/div/span[3]/a/time'
+
+    # 7 days; number of seconds after which a notification will be sent if there were no changes
+    max-secs-without-changes: 604800
+
+    # url for sending notifications (see https://github.com/codex-bot/notify)
+    notify-url: 'https://notify.bot.codex.so/u/'
+
+    # string for scheduling in crontab-like syntax (see https://crontab.guru).
+    schedule: '29 13-20 * * 1-5'
+
+    # messages list to be send
+    messages: {
+                start: [],
+                mid: [],
+                end: []
+    }
